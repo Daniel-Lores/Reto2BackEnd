@@ -1,65 +1,51 @@
 package Reto2.BackEnd.Repositories.Entities;
 
-import java.util.ArrayList;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Table(name="Order")
-@Entity(name="Order")
+@Table(name="Orders")
+@Entity(name="Orders")
 public class OrderEntity {
     private @Id @GeneratedValue long id;
-    private String Fecha_Creacion;
-    private String Usuario;
-    private String Estado;
-    private ArrayList<OrderProductEntity> orderProduct = new ArrayList<>();
-
+    private String creationDate;
+    private String name;
+    private String state;
+    
     public OrderEntity(){
        
     }
 
-    public OrderEntity( String _fecha_Creacion, String _usuario, String _estado, ArrayList<OrderProductEntity> _orderProduct) {
-        Fecha_Creacion = _fecha_Creacion;
-        Usuario = _usuario;
-        Estado = _estado;
-        this.orderProduct = _orderProduct;
-    }
-
-    public ArrayList<OrderProductEntity> getOrderProduct() {
-        return orderProduct;
-    }
-
-    public void setOrderProduct(ArrayList<OrderProductEntity> orderProduct) {
-        this.orderProduct = orderProduct;
+    public OrderEntity(String _creationDate, String _name, String _state) {
+        creationDate = _creationDate;
+        name = _name;
+        state = _state;
     }
 
     public long getId() {
         return id;
     }
-
-    public String getFecha_Creacion() {
-        return Fecha_Creacion;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public void setFecha_Creacion(String fecha_Creacion) {
-        Fecha_Creacion = fecha_Creacion;
+    public String getCreationDate() {
+        return creationDate;
     }
-
-    public String getUsuario() {
-        return Usuario;
+    public void setCreationDate(String creationDate) {
+        this.creationDate = creationDate;
     }
-
-    public void setUsuario(String usuario) {
-        Usuario = usuario;
+    public String getName() {
+        return name;
     }
-
-    public String getEstado() {
-        return Estado;
+    public void setName(String name) {
+        this.name = name;
     }
-
-    public void setEstado(String estado) {
-        Estado = estado;
+    public String getState() {
+        return state;
+    }
+    public void setState(String state) {
+        this.state = state;
     }
 }

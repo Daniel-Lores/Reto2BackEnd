@@ -1,14 +1,21 @@
 package Reto2.BackEnd.Repositories.Entities;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Table(name="Product")
+@Entity(name="Product")
 public class ProductEntity {
     private @Id @GeneratedValue long id;
     private String name;
     private double price;
     private String imgUrl;
 
+    public ProductEntity(){
+        
+    }
     public ProductEntity(String name, double price, String imgUrl) {
         this.name = name;
         this.price = price;
@@ -18,6 +25,10 @@ public class ProductEntity {
     public long getId() {
         return id;
     }
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }

@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.criteria.Order;
 
 @Table(name="OrderProduct")
 @Entity(name="OrderProduct")
@@ -24,6 +23,9 @@ public class OrderProductEntity {
 
     public long getId() {
         return id;
+    }
+    public void setId(long id) {
+        this.id = id;
     }
     public int getQuantity() {
         return quantity;
