@@ -8,7 +8,7 @@ import javax.persistence.Table;
 @Table(name="Orders")
 @Entity(name="Orders")
 public class OrderEntity {
-    private @Id @GeneratedValue long id;
+    private @Id @GeneratedValue Long id;
     private String creationDate;
     private String name;
     private String state;
@@ -23,10 +23,10 @@ public class OrderEntity {
         state = _state;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

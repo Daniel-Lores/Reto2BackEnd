@@ -1,26 +1,34 @@
 package Reto2.BackEnd.Services.Models;
 
 public class OrderProductDTO {
+    private Long id;
     private int quantity;
-    private long product;
-    private long order;
-
+    private Long idProduct;
+    private Long idOrder;
+    
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
     public int getQuantity() {
         return quantity;
     }
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-    public long getProduct() {
-        return product;
+    public Long getIdProduct() {
+        return idProduct;
     }
-    public void setProduct(long product) {
-        this.product = product;
+    public void setIdProduct(Long idProduct) {
+        this.idProduct = idProduct;
     }
-    public long getOrder() {
-        return order;
+    public Long getIdOrder() {
+        return idOrder;
     }
-    public void setOrder(long order) {
-        this.order = order;
+    public void setIdOrder(Long idOrder) {
+        this.idOrder = idOrder;
     }
+    
 }

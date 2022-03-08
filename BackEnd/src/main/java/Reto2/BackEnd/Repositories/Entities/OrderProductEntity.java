@@ -8,23 +8,24 @@ import javax.persistence.Table;
 @Table(name="OrderProduct")
 @Entity(name="OrderProduct")
 public class OrderProductEntity {
-    private @Id @GeneratedValue long id;
+    private @Id @GeneratedValue Long id;
     private int quantity;
-    private long product;
-    private long order;
+    private Long idProduct;
+    private Long idOrder;
+
     public OrderProductEntity(){
 
     }
-    public OrderProductEntity(long _Product, long _Order, int _quantity) {
-        product = _Product;
-        order = _Order;
+    public OrderProductEntity(Long _idProduct, Long _idOrder, int _quantity) {
+        idProduct = _idProduct;
+        idOrder = _idOrder;
         quantity = _quantity;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
     public int getQuantity() {
@@ -33,17 +34,16 @@ public class OrderProductEntity {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-    public long getProduct() {
-        return product;
+    public Long getIdProduct() {
+        return idProduct;
     }
-    public void setProduct(long product) {
-        this.product = product;
+    public void setIdProduct(Long idProduct) {
+        this.idProduct = idProduct;
     }
-    public long getOrder() {
-        return order;
+    public Long getIdOrder() {
+        return idOrder;
     }
-    public void setOrder(long order) {
-        this.order = order;
-    }
-   
+    public void setIdOrder(Long idOrder) {
+        this.idOrder = idOrder;
+    } 
 }

@@ -22,7 +22,4 @@ public class ProductController {
     public List<ProductDTO> GetProducts(){
         return productsServices.getAll();
     }
-
-    
-    
 }

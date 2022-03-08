@@ -1,10 +1,17 @@
 package Reto2.BackEnd.Services.Models;
 
 public class ProductDTO {
+    private Long id;
     private String name;
     private double price;
     private String imgUrl;
 
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
     public String getName() {
         return name;
     }
