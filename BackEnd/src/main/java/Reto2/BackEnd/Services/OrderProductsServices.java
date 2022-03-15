@@ -21,20 +21,20 @@ public class OrderProductsServices {
         return orderProductRepository.findAll().stream().map(x -> modelMapper.map(x, OrderProductDTO.class)).collect(Collectors.toList());
     }
 
-    public OrderProductDTO addOrder(OrderProductDTO orderProduct){
+    public OrderProductDTO addOrderProduct(OrderProductDTO orderProduct){
         OrderProductEntity orderProductToAdd = modelMapper.map(orderProduct, OrderProductEntity.class);
         OrderProductEntity result = orderProductRepository.save(orderProductToAdd);
         return modelMapper.map(result, OrderProductDTO.class);
     }
 
-    public OrderProductDTO updateOrder(Long Id, OrderProductDTO orderProduct){
+    public OrderProductDTO updateOrderProduct(Long Id, OrderProductDTO orderProduct){
         OrderProductEntity orderProductToUpdate = modelMapper.map(orderProduct, OrderProductEntity.class);
         orderProductToUpdate.setId(Id);
         OrderProductEntity result = orderProductRepository.save(orderProductToUpdate);
         return modelMapper.map(result, OrderProductDTO.class);
     }
 
-    public void deleteOrder(Long Id){
+    public void deleteOrderProduct(Long Id){
         Optional<OrderProductEntity> entityToDelete = orderProductRepository.findById(Id);
         if (entityToDelete.isPresent()){
             orderProductRepository.delete(entityToDelete.get());

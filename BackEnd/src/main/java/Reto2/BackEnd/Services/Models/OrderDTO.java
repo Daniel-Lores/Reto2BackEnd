@@ -6,6 +6,9 @@ public class OrderDTO {
     private String name;
     private String state;
 
+    public OrderDTO() {
+    }
+    
     public Long getId() {
         return id;
     }

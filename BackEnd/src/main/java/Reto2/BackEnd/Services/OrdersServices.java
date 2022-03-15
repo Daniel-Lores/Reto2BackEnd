@@ -2,18 +2,26 @@ package Reto2.BackEnd.Services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import Reto2.BackEnd.Repositories.Entities.OrderEntity;
+import Reto2.BackEnd.Repositories.Entities.OrderProductEntity;
+import Reto2.BackEnd.Repositories.Entities.ProductEntity;
+import Reto2.BackEnd.Repositories.Interfaces.OrderProductRepository;
 import Reto2.BackEnd.Repositories.Interfaces.OrderRepository;
 import Reto2.BackEnd.Services.Models.OrderDTO;
+import Reto2.BackEnd.Services.Models.OrderProductDTO;
+import Reto2.BackEnd.Services.Models.ProductDTO;
 
 public class OrdersServices {
     @Autowired
     private OrderRepository orderRespository;
+    @Autowired
+    private OrderProductRepository orderProductRespository;
     @Autowired
     private ModelMapper modelMapper;
 
@@ -40,4 +48,17 @@ public class OrdersServices {
             orderRespository.delete(entityToDelete.get());
         }
     }
+
+    // public List<OrderProductDTO> findByOrderId(Long id) {
+    //     return orderProductRespository.findByOrderId(id).stream().map(x -> modelMapper.map(x, OrderProductDTO.class))
+    //         .collect(Collectors.toList());
+    // }
+
+    public List<ProductDTO> getAllByOrderId(Long id) {
+        return orderProductRespository.getAllByOrderId(id).stream().map(x -> new ProductDTO(
+                modelMapper.map((ProductEntity)x[1], ProductDTO.class), 
+                (int)x[0]
+            )).collect(Collectors.toList());
+    }
+    
 }

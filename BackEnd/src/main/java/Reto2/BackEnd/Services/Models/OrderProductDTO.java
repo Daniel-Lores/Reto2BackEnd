@@ -6,6 +6,9 @@ public class OrderProductDTO {
     private Long idProduct;
     private Long idOrder;
     
+    public OrderProductDTO() {
+    }
+
     public Long getId() {
         return id;
     }

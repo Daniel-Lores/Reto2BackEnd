@@ -5,6 +5,18 @@ public class ProductDTO {
     private String name;
     private double price;
     private String imgUrl;
+    private int quantity;
+    
+
+    public ProductDTO() {
+    }
+
+    public ProductDTO(ProductDTO productDTO, int _quantity){
+        name = productDTO.getName();
+        price = productDTO.getPrice();
+        imgUrl = productDTO.getImgUrl();
+        quantity = _quantity;
+    }
 
     public Long getId() {
         return id;
@@ -30,4 +42,13 @@ public class ProductDTO {
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
     }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+    
 }

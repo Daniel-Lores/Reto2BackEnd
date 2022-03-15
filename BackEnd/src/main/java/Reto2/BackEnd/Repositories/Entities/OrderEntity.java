@@ -2,13 +2,14 @@ package Reto2.BackEnd.Repositories.Entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Table(name="Orders")
 @Entity(name="Orders")
 public class OrderEntity {
-    private @Id @GeneratedValue Long id;
+    private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
     private String creationDate;
     private String name;
     private String state;
