@@ -6,6 +6,18 @@ public class OrderProductDTO {
     private Long idProduct;
     private Long idOrder;
     
+<<<<<<< Updated upstream
+=======
+    public OrderProductDTO() {
+    } 
+
+    public OrderProductDTO(int quantity, Long idProduct, Long idOrder) {
+        this.quantity = quantity;
+        this.idProduct = idProduct;
+        this.idOrder = idOrder;
+    }
+
+>>>>>>> Stashed changes
     public Long getId() {
         return id;
     }

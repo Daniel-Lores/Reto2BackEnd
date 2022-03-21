@@ -22,5 +22,23 @@ public class OrderProductController {
     public List<OrderProductDTO> GetOrders(){
         return orderProductsServices.getAll();
     }
+<<<<<<< Updated upstream
+=======
+
+    @PostMapping
+    public OrderProductDTO addOrderProduct(@RequestBody OrderProductDTO orderProduct){
+        return orderProductsServices.add(orderProduct);
+    }
+
+    @PutMapping("/{id}")
+    public OrderProductDTO updatOrderProduct(@PathVariable("id") Long id, @RequestBody OrderProductDTO orderProduct){
+        return orderProductsServices.update(id, orderProduct);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteOrderProduct(@PathVariable("id") Long id){
+        orderProductsServices.deleteOrderProduct(id);
+    }
+>>>>>>> Stashed changes
     
 }

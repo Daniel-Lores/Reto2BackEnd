@@ -21,23 +21,34 @@ public class OrdersServices {
         return orderRespository.findAll().stream().map(x -> modelMapper.map(x, OrderDTO.class)).collect(Collectors.toList());
     }
 
-    public OrderDTO addOrder(OrderDTO order){
+    public OrderDTO add(OrderDTO order){
         OrderEntity orderToAdd = modelMapper.map(order, OrderEntity.class);
         OrderEntity result = orderRespository.save(orderToAdd);
         return modelMapper.map(result, OrderDTO.class);
     }
 
-    public OrderDTO updateOrder(Long Id, OrderDTO order){
+    public OrderDTO update(Long Id, OrderDTO order){
         OrderEntity orderToUpdate = modelMapper.map(order, OrderEntity.class);
         orderToUpdate.setId(Id);
         OrderEntity result = orderRespository.save(orderToUpdate);
         return modelMapper.map(result, OrderDTO.class);
     }
 
-    public void deleteOrder(Long Id){
+    public void delete(Long Id){
         Optional<OrderEntity> entityToDelete = orderRespository.findById(Id);
         if (entityToDelete.isPresent()){
             orderRespository.delete(entityToDelete.get());
         }
     }
+<<<<<<< Updated upstream
+=======
+
+    public List<ProductDTO> getAllByOrderId(Long id) {
+        return orderProductRespository.getAllByOrderId(id).stream().map(x -> new ProductDTO(
+                modelMapper.map((ProductEntity)x[1], ProductDTO.class), 
+                (int)x[0]
+            )).collect(Collectors.toList());
+    }
+    
+>>>>>>> Stashed changes
 }
