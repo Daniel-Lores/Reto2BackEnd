@@ -9,6 +9,12 @@ public class OrderProductDTO {
     public OrderProductDTO() {
     }
 
+    public OrderProductDTO(int quantity, Long idProduct, Long idOrder) {
+        this.quantity = quantity;
+        this.idProduct = idProduct;
+        this.idOrder = idOrder;
+    }
+
     public Long getId() {
         return id;
     }

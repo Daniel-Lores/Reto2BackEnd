@@ -23,7 +23,7 @@ public class OrderProductController {
         orderProductsServices = _orderProductsServices;
     }
 
-    @GetMapping
+    @GetMapping()
     public List<OrderProductDTO> GetOrders(){
         return orderProductsServices.getAll();
     }
@@ -42,5 +42,6 @@ public class OrderProductController {
     public void deleteOrderProduct(@PathVariable("id") Long id){
         orderProductsServices.deleteOrderProduct(id);
     }
+
     
 }

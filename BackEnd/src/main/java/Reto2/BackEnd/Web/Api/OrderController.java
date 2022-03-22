@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import Reto2.BackEnd.Services.OrdersServices;
 import Reto2.BackEnd.Services.Models.OrderDTO;
-import Reto2.BackEnd.Services.Models.OrderProductDTO;
 import Reto2.BackEnd.Services.Models.ProductDTO;
 
 @RestController
@@ -21,7 +20,7 @@ import Reto2.BackEnd.Services.Models.ProductDTO;
 public class OrderController {
     private final OrdersServices ordersServices;
 
-    OrderController(OrdersServices _ordersServices){
+    public OrderController(OrdersServices _ordersServices){
         ordersServices = _ordersServices;
     }
 
@@ -30,6 +29,7 @@ public class OrderController {
         return ordersServices.getAll();
     }
 
+
     @GetMapping("/{id}")
     public List<ProductDTO> GetOrderProductByOrderId(@PathVariable("id") Long id){
         var result = ordersServices.getAllByOrderId(id);
@@ -37,17 +37,18 @@ public class OrderController {
     }
     
     @PostMapping
-    public OrderDTO addOrderProduct(@RequestBody OrderDTO order){
-        return ordersServices.addOrder(order);
+    public OrderDTO addOrder(@RequestBody OrderDTO order){
+        return ordersServices.add(order);
     }
 
     @PutMapping("/{id}")
-    public OrderDTO updatOrderProduct(@PathVariable("id") Long id, @RequestBody OrderDTO order){
-        return ordersServices.updateOrder(id, order);
+    public OrderDTO updatOrder(@PathVariable("id") Long id, @RequestBody OrderDTO order){
+        return ordersServices.update(id, order);
     }
 
     @DeleteMapping("/{id}")
     public void deleteOrder(@PathVariable("id") Long id){
-        ordersServices.deleteOrder(id);
+        ordersServices.delete(id);
     }
+
 }

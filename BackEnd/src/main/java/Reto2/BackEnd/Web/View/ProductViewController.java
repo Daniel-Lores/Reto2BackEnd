@@ -37,7 +37,7 @@ public class ProductViewController {
         mav.addObject("products", productService.getAll());
         mav.addObject("orderProducts", orderService.getAllByOrderId(idOrder));
         OrderProductDTO orderProduct = new OrderProductDTO(1, idProduct, idOrder);
-        orderProductService.add(orderProduct);
+        orderProductService.addOrderProduct(orderProduct);
         return mav;
     }
 
